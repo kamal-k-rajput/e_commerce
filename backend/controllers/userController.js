@@ -49,7 +49,7 @@ router.post("/create", async function (req, res) {
     }
     return res.status(201).send({ user, status: true });
   } catch (err) {
-    return res.status(404).send({ status: false, message: e.message });
+    return res.status(404).send({ status: false, message: err.message });
   }
 });
 
