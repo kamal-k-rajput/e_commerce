@@ -1,16 +1,11 @@
 import React from "react";
 
-import { useState, useEffect, useContext } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import "./Create.css";
 export const EditUser = () => {
   const { user_id } = useContext(UserContext);
-
-  //   const [formData, setformData] = useState({
-  //     name: "",
-  //     mobileNumber: "",
-  //   });
   const [formData, setformData] = useState({});
   const handleEvent = (e) => {
     e.preventDefault();
@@ -69,7 +64,7 @@ export const EditUser = () => {
 
         <input type="submit" value="Edit Details" />
       </form>
-      <Link to={`/users/${user_id}`}>get details</Link>
+      <Link to={`/users/${user_id}`}>See New Information</Link>
     </div>
   );
 };

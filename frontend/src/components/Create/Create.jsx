@@ -21,7 +21,7 @@ export const Create = () => {
       ...formData,
       [name]: value,
     });
-    console.log(formData);
+
   };
   const handleaddress = (e) => {
     e.preventDefault();
@@ -44,7 +44,6 @@ export const Create = () => {
     fetch("http://localhost:5500/users/create", requestOptions)
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.status);
         data.status
           ? alert("user created successfully")
           : alert("fill all the fields");

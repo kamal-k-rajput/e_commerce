@@ -2,15 +2,20 @@ import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
+import { createBrowserHistory } from "history";
 
 export const UserDetails = () => {
+  const history = createBrowserHistory();
+  let realId = history.location.pathname.split("/")[2];
+
   const [data, setdata] = useState();
   const { user_id } = useContext(UserContext);
+
   async function getData() {
-    await fetch(`http://localhost:5500/users/${user_id}`).then(async (d) => {
+    await fetch(`http://localhost:5500/users/${realId}`).then(async (d) => {
       let responseData = await d.json();
-      console.log(user_id, "userid");
-      console.log(responseData.user, "inuserdetails");
+      // console.log(user_id, "userid");
+
       setdata(responseData.user);
     });
   }

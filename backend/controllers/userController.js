@@ -68,6 +68,9 @@ router.get("/:id/addresses", async function (req, res) {
     return res.status(404).send({ status: false, message: err.message });
   }
 });
+
+// -------------------------------add an address -------------------------------------
+
 router.put("/:id/addresses/create", async function (req, res) {
   try {
     let user = await User.findById(req.params.id);
@@ -80,6 +83,26 @@ router.put("/:id/addresses/create", async function (req, res) {
       },
     });
     return res.status(201).send({ status: true, user });
+  } catch (err) {
+    return res.status(404).send({ status: false, message: err.message });
+  }
+});
+
+// ------------------------------------edit an address----------------------------
+
+router.put("/:id/addresses/:idx/edit", async function (req, res) {
+  try {
+    let address = await User.findById(req.params.id);
+    let index = req.params.idx;
+    if (!address) {
+      return res.status(403).send({ message: "user not found" });
+    }
+    address = await User.findByIdAndUpdate(req.params.id, {
+      $set: { "address.index": req.body },
+    });
+
+    // ------------------NOT WORKING------------------
+    return res.status(201).send({ status: true, address });
   } catch (err) {
     return res.status(404).send({ status: false, message: err.message });
   }

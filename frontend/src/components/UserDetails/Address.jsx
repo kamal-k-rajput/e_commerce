@@ -1,11 +1,17 @@
 import React from "react";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
+import { AddressContext } from "../../context/AddressContext";
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
+import { UserDetails } from "./UserDetails";
 export const Address = () => {
   const [data, setdata] = useState();
   const { user_id } = useContext(UserContext);
+  const { handleAddressIndex } = useContext(AddressContext);
+  function handleEditAddress(value) {
+    handleAddressIndex(value);
+  }
   async function getData() {
     await fetch(`http://localhost:5500/users/${user_id}/addresses`).then(
       async (d) => {
@@ -34,7 +40,14 @@ export const Address = () => {
                 <div>City{el.city} </div>
                 <div>postalCode{el.postalCode}</div>
                 <div>state{el.state}</div>
-                <div></div>
+                <Link
+                  to={`${index}/edit`}
+                  onClick={(e) => {
+                    handleEditAddress(index);
+                  }}
+                >
+                  Edit Address
+                </Link>
               </div>
             );
           })}

@@ -4,13 +4,19 @@ import "./index.css";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
 import { UserContextProvider } from "./context/UserContext";
+import { AddressContextProvider } from "./context/AddressContext";
+import { BrandContextProvider } from "./context/BrandContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserContextProvider>
-        <App />
+        <AddressContextProvider>
+          <BrandContextProvider>
+            <App />
+          </BrandContextProvider>
+        </AddressContextProvider>
       </UserContextProvider>
     </BrowserRouter>
   </React.StrictMode>

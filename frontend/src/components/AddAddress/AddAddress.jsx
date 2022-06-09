@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { UserContext } from "../../context/UserContext";
-import "./AddAddress.css"
+import "./AddAddress.css";
 export const AddAddress = () => {
   const { user_id } = useContext(UserContext);
   const [address, setaddress] = useState({
@@ -21,8 +21,7 @@ export const AddAddress = () => {
   };
   function handleSubmit(e) {
     e.preventDefault();
-    console.log(user_id, "userIs");
-    console.log(address);
+
     const requestOptions = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -37,14 +36,14 @@ export const AddAddress = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data.status);
+
         data.status
           ? alert("address added  successfully")
           : alert("fill all the fields");
       });
   }
   return (
-    <div>
+    <div to="">
       <form onSubmit={handleSubmit}>
         Enter New complete address
         <label>
@@ -92,7 +91,7 @@ export const AddAddress = () => {
             placeholder="write State name "
           />
         </label>
-        <input type="submit" value="ADD USER" />
+        <input type="submit" value="ADD Address" />
       </form>
     </div>
   );
