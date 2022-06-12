@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { UserContextProvider } from "./context/UserContext";
 import { AddressContextProvider } from "./context/AddressContext";
 import { BrandContextProvider } from "./context/BrandContext";
+import { UrlContextProvider } from "./context/Url";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,7 +15,9 @@ root.render(
       <UserContextProvider>
         <AddressContextProvider>
           <BrandContextProvider>
-            <App />
+            <UrlContextProvider>
+              <App />
+            </UrlContextProvider>
           </BrandContextProvider>
         </AddressContextProvider>
       </UserContextProvider>

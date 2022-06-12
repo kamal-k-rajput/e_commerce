@@ -4,7 +4,6 @@ import { UserContext } from "../../context/UserContext";
 import { AddressContext } from "../../context/AddressContext";
 import { nanoid } from "nanoid";
 import { Link } from "react-router-dom";
-import { UserDetails } from "./UserDetails";
 export const Address = () => {
   const [data, setdata] = useState();
   const { user_id } = useContext(UserContext);
@@ -29,6 +28,7 @@ export const Address = () => {
 
   return (
     <div to="users/:id/address">
+      <Link to="create">add an Address</Link>
       {data ? (
         <div>
           {data.address.map((el, index) => {
@@ -53,7 +53,6 @@ export const Address = () => {
           })}
 
           {/* <Address add={userdetails._id} /> */}
-          <Link to="create">add an Address</Link>
         </div>
       ) : (
         <div>getting the data from the server</div>

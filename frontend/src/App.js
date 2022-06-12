@@ -8,7 +8,7 @@ import { Address } from "./components/UserDetails/Address";
 import { AddAddress } from "./components/AddAddress/AddAddress";
 import { EditUser } from "./components/Create/EditUser";
 import { EditAddress } from "./components/EditAddress/EditAddress";
-import { Brands } from "./components/Brands/BrandsName/Brands";
+import { Brands } from "./components/Brands/Brands/Brands";
 import { BrandOne } from "./components/Brands/BrandOne/BrandOne";
 import { BrandCreate } from "./components/Brands/Create/BrandCreate";
 import { BrandUpdate } from "./components/Brands/Update/BrandUpdate";

@@ -10,7 +10,6 @@ export const Brands = () => {
   async function getData() {
     await fetch("http://localhost:5500/brands").then(async (d) => {
       let responseData = await d.json();
-
       setdata(responseData.brands);
     });
   }

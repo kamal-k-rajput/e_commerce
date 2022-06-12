@@ -21,7 +21,6 @@ export const AddAddress = () => {
   };
   function handleSubmit(e) {
     e.preventDefault();
-
     const requestOptions = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -36,7 +35,6 @@ export const AddAddress = () => {
     )
       .then((response) => response.json())
       .then((data) => {
-
         data.status
           ? alert("address added  successfully")
           : alert("fill all the fields");
